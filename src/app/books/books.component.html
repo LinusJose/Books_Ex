@@ -1,0 +1,97 @@
+<!-- 
+<h1>{{getDetails()}}</h1>
+
+<h2>List of books</h2>
+<li *ngFor="let book of books; index as i;even as isEven">
+
+<ul>
+  <h3>{{book.title}}</h3>
+  <span *ngIf="isEven">(This is even Row) </span>
+</ul>
+
+
+</li> -->
+
+<!-- <div *ngIf="books.length>0;then booklist;else nobooks">   //#booklist checking
+</div>
+
+<ng-template #booklist>List of books</ng-template>
+
+<table>
+  <tr *ngFor="let book of books;index as i;even as isEven"
+  [class.even]="isEven">
+    <td>
+      {{i}}
+    </td>
+    <td>{{book.title}}</td>
+    <td>{{book.body}}</td>
+  </tr>
+
+  <ng-template #nobooks>No books Available</ng-template> -->
+
+  <!-- <div [hidden]="books.length>0">List of books</div>
+  <div [hidden]="books.length==0">No books</div> -->
+
+<!-- </table> -->
+
+<ul>
+  <li [class.active]="viewtab=='list'">
+    <a (click)="viewtab='list'">List of books</a></li>
+  <li [class.active]="viewtab=='list'">
+    <a (click)="viewtab='favorits'">Favorites</a></li>
+</ul>
+<div [ngSwitch]="viewtab">
+  <div *ngSwitchCase="'list'" >
+  <h3>List of books content</h3>
+
+  <table>
+    <tr *ngFor="let book of books;index as i;even as isEven"
+    [class.even]="isEven">
+      <td>
+        {{i}}
+      </td>
+      <td>{{book.title}}</td>
+      <td>{{book.body}}</td>
+    </tr>
+    </table>
+</div>
+
+    <div *ngSwitchCase="'favorits'" >
+    <h3>Favarites</h3>
+    <table>
+      <tr *ngFor="let book of favs;index as i;even as isEven"
+      [class.even]="isEven">
+        <td>
+          {{i}}
+        </td>
+        <td>{{book.title}}</td>
+        <td>{{book.body}}</td>
+      </tr>
+      </table>
+  </div>
+</div>
+<div>
+  <button
+  [ngClass]="{
+    'btn':isButton,
+    'btn-primary':isPrimary
+  }"
+  >
+  Button
+</button>
+
+</div>
+<div>
+  <input type="checkbox" (click)="togglefn()">Toggle
+</div>
+<div><button (click)="todofn()"
+  [ngStyle]="{
+    'color':canSubmit?'red':'black',
+    'backgroundColor':canSubmit ? 'blue':'yellow'
+    
+  }" >
+  Submit
+</button></div>
+
+
+
