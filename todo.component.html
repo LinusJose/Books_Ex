@@ -1,0 +1,16 @@
+<input (keyup.enter)="createData(todo)"
+#todo 
+type="text" 
+class="form-controls" 
+>
+
+<!-- <ul class="list-group">
+   <li class="list-group-item"
+   *ngFor="let todo of todos">
+   {{todo.title|uppercase:format}}
+</li>
+</ul> -->
+
+
+<input type="text" #currencyInput (keyup.enter)="onChange(currencyInput.value)">
+<p>{{currency|currency:true: 'Rupees'}}</p>
